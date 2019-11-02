@@ -13,11 +13,17 @@ public class File4 {
 			
 			FileOutputStream fo = new FileOutputStream("C:/eclipse/file2.bin");
 			
+			byte[] buffer = new byte[1024];
+			System.out.println("시작");
 			while(true) {
-				int data = fi.read();
+				int data = fi.read(buffer);
 				if(data == -1) break;
-				fo.write(data);					
-			}		
+				fo.write(buffer);	
+//				int data = fi.read(); 한개씩 복사
+//				if(data == -1) break; 한개씩 복사
+//				fo.write(data);	 한개씩 복사			
+			}
+			System.out.println("종료");
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
